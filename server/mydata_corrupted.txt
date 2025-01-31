@@ -1,0 +1,1 @@
+This is a corruption of "mydata.txt". Sending this file as a download will cause the download to fail when the client server runs the checksum.

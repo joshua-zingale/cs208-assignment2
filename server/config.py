@@ -1,0 +1,1 @@
+STORAGE_DIR = "/server_storage/"
