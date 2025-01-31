@@ -4,6 +4,11 @@ from config import STORAGE_DIR
 
 
 try:
+    HOST_IP = os.environ['HOST_IP']
+except:
+    HOST_IP = '0.0.0.0'
+
+try:
     BREAK_FILE = os.environ['BREAK_FILE'] == "TRUE"
 except:
     BREAK_FILE = False
@@ -25,3 +30,7 @@ def download_checksum():
 @app.route("/status")
 def status():
     return Response(status=200)
+
+
+if __name__ == '__main__':
+    app.run(host=HOST_IP, port=5000)
