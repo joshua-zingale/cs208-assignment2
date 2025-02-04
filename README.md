@@ -33,11 +33,13 @@ Tested on Ubuntu 22.04.5 LTS.
 3. Run *run_server.sh* to start the server application.
   - Creates a Docker network called "server", in which the server runs in a Docker container.
   - Creates a bind-mounted directory called "persistent_server_storage" in the root directory of this project with a randomly generated data file "mydata.txt" along with a file containing its checksum. This directory is available to the server's container.
-4. Run *run_client.sh* to execute the client application in a Docker container.
+4. Note the 172 IP and port printed by the server application.
+5. Run *run_client.sh 172-ip port* to execute the client application in a Docker container.
+  - The 172-ip and port are those noted in step 4. E.g. "./run_client.sh 172.20.0.2 5000"
   - The container is connected to the server network.
   - Creates a bind-mounted directory called "persistent_client_storage" in the root directory of this project. This directory is available to the client's container.
   - If the client successfully connects to the server and downloads the file, "mydata.txt" is stored in the "persistent_client_storage" directory.
-5. Run *md5sum persistent_*_storage/mydata.txt* to view the checksums of both the original and downloaded file.
+6. Run "md5sum persistent_*_storage/mydata.txt" to view the checksums of both the original and downloaded file.
 
 
 Note: *compose.yaml* is not fully functioning. As written, *compose.yaml* will launch both applications concurrently without ensuring that the server is accepting responses before the client sends its request.
