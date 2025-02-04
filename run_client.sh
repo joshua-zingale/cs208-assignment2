@@ -1,0 +1,1 @@
+docker run --rm -v ./persistent_client_storage/:/client_storage/ --network server -e SERVER_URL=http://$1:$2 client

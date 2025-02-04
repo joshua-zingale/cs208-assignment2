@@ -1,0 +1,16 @@
+services:
+  server:
+    build: ./server/
+    ports: 
+      - 5000:5000
+    volumes:
+      - ./persistent_server_storage:/server_storage
+  client:
+    build: ./client/
+    environment:
+      - SERVER_URL=http://server:5000
+    volumes:
+      - ./persistent_client_storage:/client_storage
+      
+      
+
